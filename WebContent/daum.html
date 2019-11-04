@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$.getJSON("daum", function(result) {
+			html = "";
+			$.each(result, function(i, field) {
+// 				console.log(field.title);
+// 				console.log(field.img);
+				html += "<img src='" + field.img + "'><br>";
+				html += field.title + "<br>";
+			});
+			$("div").html(html);
+		});
+	});
+</script>
+</head>
+<body>
+
+	<div></div>
+</body>
+</html>

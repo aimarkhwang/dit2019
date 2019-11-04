@@ -32,13 +32,14 @@ public class HelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("utf-8");  // 한글 처리
 		String search = request.getParameter("search");
 		
 		//response.setContentType("text/html;charset=utf-8");
 		response.setContentType("application/json;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		//out.println("hello world<br>");
-		//out.println("당신이 입력한 값은? " + search);
+		System.out.println("당신이 입력한 값은? " + search);
 		String nData = NaverApi.getNewsData(search);
 		out.println(nData);
 		//System.out.println(search);
